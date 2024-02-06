@@ -1,0 +1,37 @@
+name: Simulator tests
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # This is required for requesting the JWT
+
+jobs:
+  test:
+    runs-on:
+      - namespace-profile-macos-default
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test
+        run: |
+          xcodebuild test -quiet -scheme SIP -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2'
+      - uses: ruby/action-slack@v3.2.1
+        with:
+          payload: |
+            {
+              "attachments": [{
+                "title": "${{ job.status }}: ${{ github.workflow }}",
+                "title_link": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}/checks",
+                "text": "${{ github.repository }}@${{ github.ref }}: <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>",
+                "fields": [{ "value": ${{ toJson(github.event.head_commit.message) }}, "short": false }],
+                "footer": "${{ github.event.head_commit.committer.name }} at ${{ github.event.head_commit.timestamp }}",
+                "color": "danger"
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure() && github.ref_name == 'main'
