@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+  schedule:
+    - cron: "17 */3 * * *" # Every 3h
   workflow_dispatch:
 
 permissions:
@@ -34,4 +36,4 @@ jobs:
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: failure() && github.ref_name == 'main'
+        if: failure() && github.ref_name == 'master'
