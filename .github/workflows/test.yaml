@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "17 * * * *" # Hourly
   workflow_dispatch:
+    inputs:
+      run_on_ghrunners:
+        description: "Also run on GitHub-hosted runners"
+        required: false
+        type: boolean
 
 permissions:
   contents: read
@@ -15,6 +20,17 @@ jobs:
   test:
     runs-on:
       - namespace-profile-macos-default
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test
+        run: |
+          xcodebuild test -quiet -scheme SIP -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2'
+
+  test-ghrunners:
+    if: inputs.run_on_ghrunners
+    runs-on:
+      - macos-12
     steps:
       - name: Checkout
         uses: actions/checkout@v4
