@@ -305,7 +305,6 @@
 				D53ECF1E2A12807600639BDB /* XCRemoteSwiftPackageReference "SwiftRater" */,
 				D53ECF212A1280A800639BDB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D51DA4B32AC1892800BDE1A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				ED7A3AE22C2596F70028A314 /* XCRemoteSwiftPackageReference "intercom-ios-sp" */,
 			);
 			productRefGroup = D53ECEEC2A12806000639BDB /* Products */;
 			projectDirPath = "";
@@ -725,14 +724,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.0.0;
-			};
-		};
-		ED7A3AE22C2596F70028A314 /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/intercom/intercom-ios-sp.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 17.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
