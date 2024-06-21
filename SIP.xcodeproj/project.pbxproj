@@ -30,6 +30,7 @@
 		D5705A062AC2A97C00B34D66 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5705A052AC2A97C00B34D66 /* Launch Screen.storyboard */; };
 		D5705A0A2AC2B5B000B34D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5705A092AC2B5B000B34D66 /* AppDelegate.swift */; };
 		D5705A0C2AC2B5EC00B34D66 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5705A0B2AC2B5EC00B34D66 /* AppConfig.swift */; };
+		ED2364AD2C25CA22000826AD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2364AC2C25CA22000826AD /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D5705A092AC2B5B000B34D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5705A0B2AC2B5EC00B34D66 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D5F828B82A15ED7600A521C3 /* SIP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SIP.entitlements; sourceTree = "<group>"; };
+		ED2364AC2C25CA22000826AD /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		D53ECF0E2A12806200639BDB /* SIPUITests */ = {
 			isa = PBXGroup;
 			children = (
+				ED2364AC2C25CA22000826AD /* SnapshotHelper.swift */,
 				D53ECF0F2A12806200639BDB /* SIPUITests.swift */,
 				D53ECF112A12806200639BDB /* SIPUITestsLaunchTests.swift */,
 			);
@@ -379,6 +382,7 @@
 			files = (
 				D53ECF102A12806200639BDB /* SIPUITests.swift in Sources */,
 				D53ECF122A12806200639BDB /* SIPUITestsLaunchTests.swift in Sources */,
+				ED2364AD2C25CA22000826AD /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
