@@ -54,4 +54,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Test
         run: |
+          fastlane screenshots
           xcodebuild test -quiet -scheme SIP -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
