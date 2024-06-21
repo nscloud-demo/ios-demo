@@ -17,7 +17,7 @@ permissions:
   id-token: write # This is required for requesting the JWT
 
 jobs:
-  test:
+  resolve:
     runs-on:
       - namespace-profile-macos-default
     steps:
@@ -26,9 +26,21 @@ jobs:
       - name: Resolve
         run: |
           xcodebuild -resolvePackageDependencies -scheme SIP -project ./SIP.xcodeproj
+  fastlane:
+    runs-on:
+      - namespace-profile-macos-default
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Fastlane
         run: |
           fastlane screenshots
+  test:
+    runs-on:
+      - namespace-profile-macos-default
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Test
         run: |
           xcodebuild test -quiet -scheme SIP -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2'
