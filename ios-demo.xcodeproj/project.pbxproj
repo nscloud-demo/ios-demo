@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED13975F2C3C7EBD00B2A58D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13975E2C3C7EBD00B2A58D /* SnapshotHelper.swift */; };
 		EDF249982C3C72A000C47619 /* ios_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF249972C3C72A000C47619 /* ios_demoApp.swift */; };
 		EDF2499A2C3C72A000C47619 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF249992C3C72A000C47619 /* ContentView.swift */; };
 		EDF2499C2C3C72A100C47619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF2499B2C3C72A100C47619 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED13975E2C3C7EBD00B2A58D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		EDF249942C3C72A000C47619 /* ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF249972C3C72A000C47619 /* ios_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_demoApp.swift; sourceTree = "<group>"; };
 		EDF249992C3C72A000C47619 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		EDF249B12C3C72A100C47619 /* ios-demoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				ED13975E2C3C7EBD00B2A58D /* SnapshotHelper.swift */,
 				EDF249B22C3C72A100C47619 /* ios_demoUITests.swift */,
 				EDF249B42C3C72A100C47619 /* ios_demoUITestsLaunchTests.swift */,
 			);
@@ -284,6 +287,7 @@
 			files = (
 				EDF249B52C3C72A100C47619 /* ios_demoUITestsLaunchTests.swift in Sources */,
 				EDF249B32C3C72A100C47619 /* ios_demoUITests.swift in Sources */,
+				ED13975F2C3C7EBD00B2A58D /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -412,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
