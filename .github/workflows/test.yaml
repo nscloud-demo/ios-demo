@@ -1,0 +1,41 @@
+name: Simulator tests
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "17 * * * *" # Hourly
+  workflow_dispatch:
+    inputs:
+      run_on_ghrunners:
+        description: "Also run on GitHub-hosted runners"
+        required: false
+        type: boolean
+
+jobs:
+  fastlane:
+    runs-on: namespace-profile-macos-default
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Wandalen/wretry.action@master
+        with: # iOS tests are flaky for no good reason
+          command: |
+            fastlane screenshots
+
+  test:
+    runs-on: namespace-profile-macos-default
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Wandalen/wretry.action@master
+        with: # iOS tests are flaky for no good reason
+          command: |
+            xcodebuild test -scheme ios-demo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4'
+
+  test-ghrunners:
+    runs-on: macos-14
+    if: inputs.run_on_ghrunners
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo xcode-select -s /Applications/Xcode_15.4.app
+          xcodebuild test -scheme ios-demo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4'
