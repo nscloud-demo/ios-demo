@@ -20,9 +20,6 @@ jobs:
       - uses: Wandalen/wretry.action@master
         with: # iOS tests are flaky for no good reason
           command: |
-            # TODO: remove this
-            sudo rm -r /Library/Developer/CoreSimulator/Images
-
             fastlane screenshots
       - name: Breakpoint if tests failed
         if: failure() && github.ref_name == 'main'
@@ -38,9 +35,6 @@ jobs:
       - uses: Wandalen/wretry.action@master
         with: # iOS tests are flaky for no good reason
           command: |
-            # TODO: remove this
-            sudo rm -r /Library/Developer/CoreSimulator/Images
-
             xcodebuild test -scheme ios-demo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4'
 
   test-ghrunners:
