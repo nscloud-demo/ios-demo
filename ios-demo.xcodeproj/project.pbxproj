@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		ED13975E2C3C7EBD00B2A58D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		ED489B7A2C9AE157008A5A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF249942C3C72A000C47619 /* ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF249972C3C72A000C47619 /* ios_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_demoApp.swift; sourceTree = "<group>"; };
 		EDF249992C3C72A000C47619 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED489B792C9AE140008A5A68 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED489B7A2C9AE157008A5A68 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EDF2498B2C3C72A000C47619 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +107,7 @@
 		EDF249962C3C72A000C47619 /* ios-demo */ = {
 			isa = PBXGroup;
 			children = (
+				ED489B792C9AE140008A5A68 /* Resources */,
 				EDF249972C3C72A000C47619 /* ios_demoApp.swift */,
 				EDF249992C3C72A000C47619 /* ContentView.swift */,
 				EDF2499B2C3C72A100C47619 /* Assets.xcassets */,
@@ -435,7 +445,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ios-demo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ios-demo/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +463,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST = 1;
 			};
 			name = Debug;
 		};
@@ -464,7 +476,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ios-demo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ios-demo/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -481,6 +494,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST = 1;
 			};
 			name = Release;
 		};

@@ -3,3 +3,5 @@ xcuserdata/
 .build/
 fastlane/screenshots
 fastlane/report.xml
+
+/bazel-*
