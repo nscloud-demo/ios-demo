@@ -1,0 +1,30 @@
+# Pin to 7.4.1 for now because 8.0.0 is not happy with
+#
+#	Analyzing: target //:ios-demo (111 packages loaded, 3355 targets configured)
+#	    Fetching repository @@nlohmann_json+; Patching repository
+#	    Fetching https://bcr.bazel.build/modules/nlohmann_json/3.6.1/patches/module_dot_bazel.patch
+#	FATAL: bazel crashed due to an internal error. Printing stack trace:
+#	java.lang.RuntimeException: Unrecoverable error while evaluating node 'ConfiguredTargetKey{label=//:ios-demo, config=BuildConfigurationKey[cbbe0474cdddc24872506f13a78f0816c393b4da19fcd8f6b9e76a8ddb8ca191]}' (requested by nodes 'ConfiguredTargetKey{label=//:ios-demo, config=BuildConfigurationKey[e5d0b45255bbe29fcc274b3efed42ccbd4b88bf8d5a015d3138aed480339a787]}')
+#		at com.google.devtools.build.skyframe.AbstractParallelEvaluator$Evaluate.run(AbstractParallelEvaluator.java:547)
+#		at com.google.devtools.build.lib.concurrent.AbstractQueueVisitor$WrappedRunnable.run(AbstractQueueVisitor.java:435)
+#		at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(Unknown Source)
+#		at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+#		at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+#		at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+#		at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+#		at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+#	Caused by: net.starlark.java.eval.Starlark$UncheckedEvalException: IllegalArgumentException thrown during Starlark evaluation (//:ios-demo)
+#		at <starlark>.declare_shareable_artifact(<builtin>:0)
+#		at <starlark>._register_configuration_specific_link_actions(/virtual_builtins_bzl/common/objc/compilation_support.bzl:858)
+#		at <starlark>._link_multi_arch_binary(/private/var/tmp/_bazel_runner/6db11b846d1662937b1effa31dffd236/external/rules_apple+/apple/internal/linking_support.bzl:300)
+#		at <starlark>._register_binary_linking_action(/private/var/tmp/_bazel_runner/6db11b846d1662937b1effa31dffd236/external/rules_apple+/apple/internal/linking_support.bzl:528)
+#		at <starlark>._ios_application_impl(/private/var/tmp/_bazel_runner/6db11b846d1662937b1effa31dffd236/external/rules_apple+/apple/internal/ios_rules.bzl:239)
+#	Caused by: java.lang.IllegalArgumentException: /ios-demo_bin
+#		at com.google.common.base.Preconditions.checkArgument(Preconditions.java:145)
+#		at com.google.devtools.build.lib.actions.ArtifactFactory.validatePath(ArtifactFactory.java:183)
+#		at com.google.devtools.build.lib.actions.ArtifactFactory.getDerivedArtifact(ArtifactFactory.java:227)
+#		at com.google.devtools.build.lib.analysis.CachingAnalysisEnvironment.getDerivedArtifact(CachingAnalysisEnvironment.java:282)
+#		at com.google.devtools.build.lib.analysis.CachingAnalysisEnvironment.getDerivedArtifact(CachingAnalysisEnvironment.java:274)
+#
+# https://buildkite.com/namespace-labs-staging/ios-build-canary-staging/builds/4365#0193b0e9-938a-41c9-afb0-c1d65eee0d69
+USE_BAZEL_VERSION=7.4.1
