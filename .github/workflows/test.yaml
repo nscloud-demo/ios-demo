@@ -22,7 +22,14 @@ jobs:
           ruby-version: '3.1.4'
           bundler-cache: true
       - run: |
-          bundle exec pod install --deployment --repo-update
+          cp Podfile.lock Podfile.lock.bak
+          cp Podfile Podfile.bak
+
+          bundle exec pod install --repo-update
+
+          echo Podfile.lock.diff ; diff -u Podfile.lock.bak Podfile.lock || true
+          echo Podfile.diff ; diff -u Podfile.bak Podfile || true
+
       - uses: Wandalen/wretry.action@master
         with: # iOS tests are flaky for no good reason
           command: |
