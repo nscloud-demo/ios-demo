@@ -17,12 +17,18 @@ jobs:
     runs-on: namespace-profile-macos-default
     steps:
       - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.4'
+          bundler-cache: true
+      - run: |
+          bundle exec pod install --deployment --repo-update
       - uses: Wandalen/wretry.action@master
         with: # iOS tests are flaky for no good reason
           command: |
-            fastlane screenshots
+            bundle exec fastlane screenshots
       - name: Breakpoint if tests failed
-        if: failure() && github.ref_name == 'main'
+        #if: failure() && github.ref_name == 'main'
         uses: namespacelabs/breakpoint-action@v0
         with:
           duration: 5m
@@ -42,6 +48,19 @@ jobs:
     if: inputs.run_on_ghrunners
     steps:
       - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.4'
+          bundler-cache: true
       - run: |
-          sudo xcode-select -s /Applications/Xcode_15.4.app
-          xcodebuild test -scheme ios-demo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' -quiet
+          bundle exec pod install --deployment --repo-update
+      - uses: Wandalen/wretry.action@master
+        with: # iOS tests are flaky for no good reason
+          command: |
+            bundle exec fastlane screenshots
+      - name: Breakpoint if tests failed
+        #if: failure() && github.ref_name == 'main'
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 5m
+          authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
