@@ -1,2 +1,21 @@
 bazel_dep(name = "rules_apple", version = "3.16.0", repo_name = "build_bazel_rules_apple")
 bazel_dep(name = "rules_swift", version = "2.2.4", repo_name = "build_bazel_rules_swift")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "lottie-ios",
+    sha256 = "0dde98ec06883c6678a73430ade4498014c99b3566b9a61ffaff57426d2d582e",
+    strip_prefix = "lottie-ios-4.3.3",
+    url = "https://github.com/airbnb/lottie-ios/archive/refs/tags/4.3.3.zip",
+    build_file = "//:lottie/lottie.BUILD",
+)
+
+
+http_archive(
+    name = "lottie-ios-prebuilt",
+    sha256 = "4b236af575d08526703919c5cd74d54772730e42b21bde2296bac07ad9ce5cda",
+    strip_prefix = "Lottie.xcframework/ios-arm64_x86_64-simulator",
+    url = "https://github.com/airbnb/lottie-ios/releases/download/4.5.1/Lottie.xcframework.zip",
+    build_file = "//:lottie.BUILD",
+)

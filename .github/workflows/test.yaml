@@ -28,6 +28,17 @@ jobs:
           duration: 5m
           authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
 
+  bazel:
+    runs-on: namespace-profile-macos-default
+    steps:
+      - uses: actions/checkout@v4
+      - name: bazel build
+        run: |
+          bazel build --subcommands //:ios-demo --xcode_version 16.2
+      - name: bazel test
+        run: |
+          bazel test //:ui-tests --test_output=errors --xcode_version 16.2
+
   test:
     runs-on: namespace-profile-macos-default
     steps:
