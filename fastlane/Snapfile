@@ -2,7 +2,7 @@
 
 # A list of devices you want to take the screenshots from
 devices([
-  "iPhone 16"
+  "iPhone 15"
 ])
 
 ios_version "17.5"
